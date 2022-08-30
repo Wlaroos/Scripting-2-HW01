@@ -21,6 +21,7 @@ public class SpeedIncrease : CollectibleBase
     {
         //rotation
         Quaternion turnOffset = Quaternion.Euler(MovementSpeed, MovementSpeed, MovementSpeed);
+        rb.MoveRotation(rb.rotation * turnOffset);
     }
 
 }

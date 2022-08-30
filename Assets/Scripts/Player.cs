@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
 
     [SerializeField] int _maxHealth = 3;
+
+    [SerializeField] TextMeshProUGUI _tmp;
+
+    int _treasureCount;
     int _currentHealth;
 
     TankController _tankController;
@@ -22,6 +27,7 @@ public class Player : MonoBehaviour
 
     public void IncreaseHealth(int amount)
     {
+        _currentHealth += amount;
         _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
         Debug.Log("Player's Health: " + _currentHealth);
     }
@@ -34,6 +40,13 @@ public class Player : MonoBehaviour
         {
             Kill();
         }
+    }
+
+    public void IncreaseTreasure(int amount)
+    {
+        _treasureCount += amount;
+        _tmp.text = "Treasure: " + _treasureCount;
+        Debug.Log("Player's Treasure: " + _treasureCount);
     }
 
     public void Kill()

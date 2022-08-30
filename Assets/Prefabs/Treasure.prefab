@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6757152109799975304}
   - component: {fileID: 3443842749217348035}
   - component: {fileID: 2134138392819119453}
-  - component: {fileID: 6725750502546639258}
+  - component: {fileID: 8139439689587958300}
   m_Layer: 0
-  m_Name: SpeedIncrease
+  m_Name: Treasure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b3db6689cee149b47a905e5bce2a84b8, type: 2}
+  - {fileID: 2100000, guid: a4d9db91db327fd449bfe60c9c2a4579, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6725750502546639258
+--- !u!114 &8139439689587958300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,10 +124,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9160111188079805654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc355b8280d08248a7b2ce210691a4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d885f551cfdd9646847361225157b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 1
   _collectParticles: {fileID: 0}
   _collectSound: {fileID: 0}
-  _speedAmount: 0.1
+  _treasureAmount: 1
+  _tmp: {fileID: 0}
