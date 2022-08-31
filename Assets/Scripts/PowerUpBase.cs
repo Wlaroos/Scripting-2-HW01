@@ -10,6 +10,7 @@ public abstract class PowerUpBase : MonoBehaviour
     [SerializeField] float _powerupDuration;
     [SerializeField] ParticleSystem _powerupParticles;
     [SerializeField] AudioClip _powerupSound;
+    [SerializeField] AudioClip _powerdownSound;
 
     Rigidbody _rb;
 
@@ -24,6 +25,7 @@ public abstract class PowerUpBase : MonoBehaviour
         if (player != null)
         {
             PowerUp(player);
+            Feedback();
             //particles and sfx because we need to disable
 
             gameObject.GetComponent<MeshRenderer>().enabled = false;
@@ -39,7 +41,26 @@ public abstract class PowerUpBase : MonoBehaviour
 
         PowerDown(player);
 
+        if (_powerdownSound != null)
+        {
+            AudioHelper.PlayClip2D(_powerdownSound, 1f);
+        }
+
         Destroy(this.gameObject);
     }
 
- }
+    private void Feedback()
+    {
+        //particles
+        if (_powerupParticles != null)
+        {
+            _powerupParticles = Instantiate(_powerupParticles, transform.position, Quaternion.identity);
+        }
+        //audio -- consider object pooling for performance
+        if (_powerupSound != null)
+        {
+            AudioHelper.PlayClip2D(_powerupSound, 1f);
+        }
+    }
+
+}

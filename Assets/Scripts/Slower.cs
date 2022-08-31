@@ -16,8 +16,8 @@ public class Slower : Enemy
             controller.MoveSpeed -= _slowAmount;
             _timer = true;
             Debug.Log("Speed: " + controller.MoveSpeed);
+            StartCoroutine(SlowReset(controller));
         }
-        StartCoroutine(SlowReset(controller));
     }
 
     IEnumerator SlowReset(TankController controller)
